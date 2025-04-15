@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package main;
+
+option go_package = "./productpb";
+
+service ProductService {
+  rpc GetProduct (GetProductRequest) returns (Product);
+  rpc GetAllProduct (GetAllProductRequest) returns (GetAllProductResponse);
+}
+
+message GetProductRequest {
+  int32 id = 1;
+}
+
+message ProductUser  {
+  int32 id = 1;
+  string name = 2;
+  int32 age = 3;
+}
+
+message Product {
+  int32 id = 1;
+  string name = 2;
+  float price = 3;
+  ProductUser  user = 4;
+}
+
+message GetAllProductRequest {
+}
+
+
+message GetAllProductResponse {
+    repeated Product product = 1;
+}
