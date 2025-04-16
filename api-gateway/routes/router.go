@@ -16,5 +16,9 @@ func SetupRoutes(r *gin.Engine) {
 		api.GET("/products", controllers.GetAllProducts)
 		// Route lấy sản phẩm theo id
 		api.GET("/products/:id", controllers.GetProduct)
+
+		api.GET("/orders", controllers.GetAllOrders)
+		api.GET("/orders/:id", controllers.GetOrder)
+
 	}
 }

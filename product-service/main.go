@@ -6,6 +6,7 @@ import (
 	"net"
 
 	"google.golang.org/grpc"
+	"seotrang.com/rgpc-microservice-product/pkg/grpcclient"
 	"seotrang.com/rgpc-microservice-product/services"
 )
 
@@ -15,6 +16,16 @@ func main() {
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
+
+	if err := grpcclient.InitGRPCConnection(); err != nil {
+		log.Fatalf("❌ Failed to connect to gRPC server: %v", err)
+	}
+
+	defer func() {
+		if grpcclient.UserConn != nil {
+			grpcclient.UserConn.Close()
+		}
+	}()
 
 	// Khởi tạo gRPC server
 	s := grpc.NewServer()

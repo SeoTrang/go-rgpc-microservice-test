@@ -9,7 +9,7 @@ import (
 func RegisterServices(s *grpc.Server) {
 	// Đăng ký UserService
 	productpb.RegisterProductServiceServer(s, NewProductService())
-
+	
 	// Đăng ký các service khác ở đây, ví dụ:
 	// otherpb.RegisterOtherServiceServer(s, NewOtherService())
 }

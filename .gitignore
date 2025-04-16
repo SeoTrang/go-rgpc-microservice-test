@@ -25,4 +25,59 @@ vendor/
 # Go workspace file
 go.work
 
-# End of https://www.toptal.com/developers/gitignore/api/go
+# Compiled output
+order-service/dist/
+order-service/node_modules/
+order-service/build/
+
+# Logs
+order-service/logs/
+order-service/*.log
+order-service/npm-debug.log*
+order-service/pnpm-debug.log*
+order-service/yarn-debug.log*
+order-service/yarn-error.log*
+order-service/lerna-debug.log*
+
+# OS files
+order-service/.DS_Store
+
+# Tests
+order-service/coverage/
+order-service/.nyc_output/
+
+# IDEs and editors
+order-service/.idea/
+order-service/.project
+order-service/.classpath
+order-service/.c9/
+order-service/*.launch
+order-service/.settings/
+order-service/*.sublime-workspace
+
+# IDE - VSCode
+order-service/.vscode/*
+!order-service/.vscode/settings.json
+!order-service/.vscode/tasks.json
+!order-service/.vscode/launch.json
+!order-service/.vscode/extensions.json
+
+# dotenv environment variable files
+order-service/.env
+order-service/.env.development.local
+order-service/.env.test.local
+order-service/.env.production.local
+order-service/.env.local
+
+# temp directory
+order-service/.temp/
+order-service/.tmp/
+
+# Runtime data
+order-service/pids/
+order-service/*.pid
+order-service/*.seed
+order-service/*.pid.lock
+
+# Diagnostic reports (https://nodejs.org/api/report.html)
+order-service/report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json

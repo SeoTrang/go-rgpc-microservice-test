@@ -19,9 +19,10 @@ func GetProduct(c *gin.Context) {
 	}
 
 	product := models.Product{
-		Id:    res.Id,
-		Name:  res.Name,
-		Price: res.Price,
+		Id:     res.Id,
+		Name:   res.Name,
+		Price:  res.Price,
+		UserId: res.UserId,
 		User: &models.User{
 			ID:   res.User.Id,
 			Name: res.User.Name,
@@ -37,15 +38,17 @@ func GetAllProducts(c *gin.Context) {
 	defer cancel()
 	res, err := grpcclient.ProductClient.GetAllProduct(ctx, &productpb.GetAllProductRequest{})
 	if err != nil {
+		log.Println(err)
 		log.Fatalf("could not found products")
 	}
 
 	var products []models.Product
 	for _, p := range res.Product {
 		product := models.Product{
-			Id:    p.Id,
-			Name:  p.Name,
-			Price: p.Price,
+			Id:     p.Id,
+			Name:   p.Name,
+			Price:  p.Price,
+			UserId: p.UserId,
 			User: &models.User{
 				ID:   p.User.Id,
 				Name: p.User.Name,

@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package main;
+
+
+option go_package = "./orderpb";
+
+service OrderService {
+  rpc GetOrder (OrderRequest) returns (OrderResponse);
+  rpc GetAllOrders (Empty) returns (ListOrderResponse);
+
+}
+
+message Empty{}
+
+message OrderRequest {
+  int32 id = 1;
+}
+
+message UserOrer {
+  int32 id = 1;
+  string name = 2;
+  int32 age = 3;
+}
+
+message OrderResponse {
+  int32 id = 1;
+  string code = 2;
+  int32 user_id = 3;
+  UserOrer user = 4;
+}
+
+message ListOrderResponse {
+  repeated OrderResponse orders = 1;
+}

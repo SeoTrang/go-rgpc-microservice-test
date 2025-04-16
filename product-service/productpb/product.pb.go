@@ -130,6 +130,7 @@ type Product struct {
 	Id            int32                  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name          string                 `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
 	Price         float32                `protobuf:"fixed32,3,opt,name=price,proto3" json:"price,omitempty"`
+	UserId        int32                  `protobuf:"varint,5,opt,name=user_id,json=userId,proto3" json:"user_id,omitempty"`
 	User          *ProductUser           `protobuf:"bytes,4,opt,name=user,proto3" json:"user,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
@@ -182,6 +183,13 @@ func (x *Product) GetName() string {
 func (x *Product) GetPrice() float32 {
 	if x != nil {
 		return x.Price
+	}
+	return 0
+}
+
+func (x *Product) GetUserId() int32 {
+	if x != nil {
+		return x.UserId
 	}
 	return 0
 }
@@ -283,11 +291,12 @@ const file_protos_product_proto_rawDesc = "" +
 	"\vProductUser\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x10\n" +
-	"\x03age\x18\x03 \x01(\x05R\x03age\"j\n" +
+	"\x03age\x18\x03 \x01(\x05R\x03age\"\x83\x01\n" +
 	"\aProduct\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x05R\x02id\x12\x12\n" +
 	"\x04name\x18\x02 \x01(\tR\x04name\x12\x14\n" +
-	"\x05price\x18\x03 \x01(\x02R\x05price\x12%\n" +
+	"\x05price\x18\x03 \x01(\x02R\x05price\x12\x17\n" +
+	"\auser_id\x18\x05 \x01(\x05R\x06userId\x12%\n" +
 	"\x04user\x18\x04 \x01(\v2\x11.main.ProductUserR\x04user\"\x16\n" +
 	"\x14GetAllProductRequest\"@\n" +
 	"\x15GetAllProductResponse\x12'\n" +
